@@ -9,9 +9,10 @@ import javax.swing.JOptionPane;
  */
 
 
-
 public class IO {
-    
+    /**
+     * datos object used to implement variables
+     */
     static class datos{
          int numeroI;
          float numeroF;
@@ -20,15 +21,34 @@ public class IO {
     }
     
     static datos obx=new datos();
-    
+    /**
+     *  CONSOLA: It is used to select the console
+     */
     public static final int CONSOLA=0;
+    /**
+     *  VENTANA: It is used to select the window
+     */
     public static final int VENTANA=1;
-
+    /**
+     *  mensaje: Text to lock in the console or in the windows
+     */
     private static String mensaje;
 
+    /**
+     *  INT: Select int variable
+     */
     public static final int INT=2;
+    /**
+     *  FLOAT: Select float variable
+     */
     public static final int FLOAT=3;
+    /**
+     *  DOUBLE: Select double variable
+     */
     public static final int DOUBLE=4;
+    /**
+     *  STRING: Select String variable
+     */
     public static final int STRING=5;
 
     
