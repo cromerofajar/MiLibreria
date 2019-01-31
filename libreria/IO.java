@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
  */
 
 
-public class IO {
+public abstract class IO implements InterfazComunes{
     /**
      * datos object used to implement variables
      */
@@ -51,6 +51,23 @@ public class IO {
      */
     public static final int STRING=5;
 
+        
+    public static IO crearIO(int tipo){
+        IO nuevoIO;
+        switch(tipo){
+            case CONSOLA: 
+               nuevoIO=new Consola();
+               break;
+               
+            case VENTANA:
+               nuevoIO=new Ventana();
+               break;
+            
+            default:
+                nuevoIO=null;
+        }
+        return nuevoIO;
+    }
     
     /*Tipo*/
     /**
@@ -77,7 +94,7 @@ public class IO {
         Scanner ler=new Scanner(System.in);
         obx.numeroI=ler.nextInt();
     }
-    private static void pventanaI(){;
+    private static void pventanaI(){
         obx.numeroI=Integer.parseInt(JOptionPane.showInputDialog(null,mensaje));
     }
     
@@ -95,23 +112,8 @@ public class IO {
                           pventanaI();
                           break;
         }
-    }
-    /**
-     * 
-     * @param selector Select Consola or Ventana to select the visualization mode
-     * @param numero Variable data
-     */
-    public static void impri(int selector,int numero){
-        switch (selector){
-            case CONSOLA: System.out.println(numero);
-            break;
-            case VENTANA: JOptionPane.showMessageDialog(null, numero);
-            break;
-        }
-        
-    }
-    
-    
+    }   
+     
     /*String*/
     private static void pconsolaS(){
         Scanner ler=new Scanner(System.in);
@@ -136,20 +138,6 @@ public class IO {
                           break;
     }
     }
-    /**
-     * 
-     * @param selector Select Consola or Ventana to select the visualization mode
-     * @param texto Variable data
-     */
-    
-   public static void impri(int selector,String texto){
-        switch (selector){
-            case CONSOLA: System.out.println(texto);
-            break;
-            case VENTANA: JOptionPane.showMessageDialog(null, texto);
-            break;
-        }
-   }
 
     /*Float*/
     private static void pconsolaF(){
@@ -175,21 +163,6 @@ public class IO {
                           break;
         }
     }
-    
-    /**
-     * 
-     * @param selector Select Consola or Ventana to select the visualization mode
-     * @param numero Variable data
-     */
-    
-    public static void impri(int selector, float numero){
-        switch (selector){
-            case CONSOLA: System.out.println(numero);
-            break;
-            case VENTANA: JOptionPane.showMessageDialog(null, numero);
-            break;
-        }
-    }
   
     /*Double*/
     private static void pconsolaD(){
@@ -213,21 +186,6 @@ public class IO {
             case VENTANA: IO.mensaje=mensaje;
                           pventanaD();
                           break;
-        }
-    }
-    
-    /**
-     * 
-     * @param selector Select Consola or Ventana to select the visualization mode
-     * @param numero Variable data
-     */
-    
-    public static void impri(int selector, double numero){
-        switch (selector){
-            case CONSOLA: System.out.println(numero);
-            break;
-            case VENTANA: JOptionPane.showMessageDialog(null, numero);
-            break;
         }
     }
 }
